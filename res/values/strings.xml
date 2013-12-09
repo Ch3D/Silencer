@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Silencer</string>
+    <string name="enable_silencer">Enable Silencer</string>
+    <string name="enable_silencer_info">Enable Silencer service that will decrease volume on phone rotation</string>
+</resources>

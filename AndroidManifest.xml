@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ch3d.silencer"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+    
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+	
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <activity android:name="com.ch3d.silencer.SettingsActivity"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> 
+       </activity>
+        
+        <receiver
+            android:enabled="true" 
+            android:exported="true"
+            android:name="com.ch3d.silencer.CallReceiver" >
+	        <intent-filter>
+	            <action android:name="android.intent.action.PHONE_STATE" />
+	            <action android:name="android.intent.action.NEW_OUTGOING_CALL" /> 
+	        </intent-filter>
+    	</receiver>
+        
+        <service android:name="com.ch3d.silencer.service.CallSilencerService" />
+        
+    </application>
+</manifest>
